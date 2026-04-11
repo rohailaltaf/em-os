@@ -26,6 +26,18 @@ The EM's real working documents — 1:1 notes, planning docs, review templates �
 
 If this system doesn't exist yet (no `config.md` in the working directory), run the onboarding flow. This is a conversation — ask these questions naturally, adapt based on their answers, and skip what doesn't apply.
 
+### Clone cleanup
+
+Before starting the onboarding questions, check whether this directory is a clone of the EM-OS repository. Look for these signals: a git remote pointing to an em-os upstream repo, the presence of `CHANGELOG.md`, `eval/`, `assets/`, or a `README.md` whose first heading is `# EM-OS`.
+
+If you detect these artifacts, explain to the EM that the directory contains project files from the EM-OS repo that aren't part of their personal system, and that keeping them will clutter their workspace. Tell them specifically what you'd like to do:
+
+- Remove the git remote that points to the upstream EM-OS repo
+- Delete project files: `CHANGELOG.md`, `LICENSE`, `README.md`, `eval/`, `assets/`
+- Reset git history so their system starts with a clean first commit instead of inheriting the EM-OS release history
+
+Ask for their confirmation before doing any of this. If they decline, continue with onboarding normally — the system will still work, it'll just have extra files around. If they confirm, perform the cleanup, then proceed with onboarding.
+
 ### About you
 - What's your name?
 - What company and team are you on?
