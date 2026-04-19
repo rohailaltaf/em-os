@@ -40,8 +40,9 @@ Ask for their confirmation before doing any of this. If they decline, continue w
 
 ### About you
 - What's your name?
-- What company and team are you on?
+- What company are you at?
 - What's your role? (engineering manager, senior EM, director, etc.)
+- Do you manage a single team, or multiple teams? (e.g., managers-of-managers, directors, or EMs who split time across two teams often have more than one.) If multiple, get each team's name and a one-line description. If single, get the team name.
 - How would you describe your job in a few sentences? What takes up most of your time?
 
 ### Your people
@@ -50,10 +51,10 @@ Ask for their confirmation before doing any of this. If they decline, continue w
 - Who else do you work with regularly? (skip-level manager, PMs, designers, stakeholders, other EMs, executives) For each: name, role, and why they matter.
 
 ### Your products and systems
-- What product(s) does your team own? What does each one do?
+- What product(s) does your team own? What does each one do? (If you manage multiple teams, walk through each team's products — note which team owns what.)
 - What's the tech stack for each? (languages, frameworks, infrastructure)
 - Are there shared systems or platforms at the company that your product depends on? (e.g., a shared Airflow instance for data pipelines, a common auth service, a design system) Who owns those?
-- Any other teams or products your team regularly interfaces with?
+- Any other teams or products your team(s) regularly interface with?
 
 ### How you work
 - What ceremonies or recurring meetings matter on your team? (standups, retros, planning, demos, etc.) Some EMs live by retros; others don't do them at all — just tell me what's real for your team.
@@ -84,6 +85,9 @@ The system lives in the working directory. Here is the full possible structure �
 config.md              # EM profile, preferences, sync sources, team context
 index.md               # Catalog of everything in the system
 log.md                 # Chronological record of activity
+
+teams/                 # Only if the EM manages multiple teams
+  <team-name>.md       # One file per team: charter, members, products, active projects
 
 people/
   <name>.md            # One file per person (reports, manager, stakeholders)
@@ -123,6 +127,8 @@ raw/
 
 Not every EM will use every directory. Most directories are created on-demand — when the EM first needs to hire someone, create `hiring/`; when they first escalate something, create `escalations/`. During onboarding, only create directories that match what the EM described (people, products, and whatever workflows they mentioned). The rest appear naturally as the EM uses the system.
 
+**Single-team vs. multi-team layout.** If the EM manages one team, skip `teams/` entirely — the whole system implicitly belongs to that team. If the EM manages multiple teams (director, manager-of-managers, or an EM splitting across two teams), create a `teams/` directory with one file per team. Keep `people/`, `projects/`, and `products/` flat at the root — do **not** nest them under each team — and instead tag each file with its team in the frontmatter or body (e.g., a `**Team**:` field that links to `teams/<team-name>.md`). This keeps cross-team context (a platform product used by multiple teams, someone moving between teams, a project spanning teams) coherent instead of fragmenting it. Team files themselves link out to the people, products, and projects that belong to them.
+
 ## Core files
 
 ### config.md
@@ -136,7 +142,7 @@ The EM's profile and preferences. Created during onboarding, updated as things c
 - **Name**: 
 - **Role**: 
 - **Company**: 
-- **Team**: 
+- **Team(s)**: <!-- Single team name, or a list of teams if the EM manages multiple. For multi-team setups, each team should also have its own file in teams/ -->
 - **About**: <!-- A few sentences about their job, what they focus on -->
 
 ## Preferences
