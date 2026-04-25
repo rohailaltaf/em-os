@@ -73,7 +73,16 @@ Ask for their confirmation before doing any of this. If they decline, continue w
 
 Based on the answers, create the directory structure and files. **You MUST use your file writing tools (Write, Edit, Bash, etc.) to create every file. Do not just describe or list files — actually write them to disk.** If you find yourself writing a summary of files you "created" without having called a write tool for each one, stop and actually create them. Only create directories and files for things the EM actually cares about. Don't scaffold empty structures for ceremonies they don't practice.
 
-As the final onboarding step, create an `AGENTS.md` file (or `CLAUDE.md` if you are Claude Code) in the root of the working directory. This file should contain the full EM-OS prompt so that future sessions automatically load the system context without the EM needing to paste the prompt again.
+As the final onboarding step, create a short orientation stub at `AGENTS.md` in the root of the working directory, then symlink `CLAUDE.md -> AGENTS.md` so Claude Code picks it up.
+
+**Do not copy this prompt into `AGENTS.md`.** `AGENTS.md` is loaded automatically at the start of every future session — it should be a lightweight pointer, not a duplicate of the full prompt. Target ~30 lines. Include:
+
+1. A one-line identification of the workspace (EM name, role, company).
+2. The session-start read order: `config.md` → `index.md` → recent `log.md` entries, then ask what the EM wants to work on.
+3. A list of the directories and canonical files you actually scaffolded during onboarding — only those, not the full possible structure.
+4. A link to the full system prompt (`https://github.com/rohailaltaf/em-os/blob/main/prompt.md`) so future sessions can reload templates and workflows on demand.
+
+The goal is a fast-orient file that tells a fresh session what exists in this workspace and where to look when it needs more.
 
 After creating everything, summarize what you set up and explain what the EM can do next.
 

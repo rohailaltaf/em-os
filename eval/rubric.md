@@ -11,7 +11,7 @@ Required files:
 - config.md — EM profile, preferences, sync sources
 - index.md — catalog of all files with summaries and links
 - log.md — at least one onboarding entry
-- AGENTS.md or CLAUDE.md — the prompt persisted for future sessions
+- AGENTS.md or CLAUDE.md — a short orientation stub (~30 lines) identifying the workspace, giving a session-start read order, listing only the directories/files that were actually scaffolded, and linking to the full system prompt URL. **Must not be a copy of the full prompt.**
 
 Required directories:
 - people/ — one file per person mentioned (reports, manager, key stakeholders)
