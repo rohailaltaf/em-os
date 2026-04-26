@@ -11,6 +11,7 @@ Required files:
 - config.md — EM profile, preferences, sync sources
 - index.md — catalog of all files with summaries and links
 - log.md — at least one onboarding entry
+- todos.md — canonical action tracker, scaffolded with category sections matching the teams/projects the EM described (empty categories are fine on day 1)
 - AGENTS.md or CLAUDE.md — a short orientation stub (~30 lines) identifying the workspace, giving a session-start read order, listing only the directories/files that were actually scaffolded, and linking to the full system prompt URL. **Must not be a copy of the full prompt.**
 
 Required directories:

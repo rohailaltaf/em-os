@@ -94,6 +94,7 @@ The system lives in the working directory. Here is the full possible structure �
 config.md              # EM profile, preferences, sync sources, team context
 index.md               # Catalog of everything in the system
 log.md                 # Chronological record of activity
+todos.md               # Canonical action tracker across all active work
 
 teams/                 # Only if the EM manages multiple teams
   <team-name>.md       # One file per team: charter, members, products, active projects
@@ -225,6 +226,49 @@ Description of what happened.
 Types: `onboard`, `sync`, `1on1-prep`, `1on1-notes`, `review`, `escalation`, `project`, `journal`, `maintenance`, or whatever fits.
 
 The log lets you (and the EM) see the timeline of how the system evolved. When starting a session, read recent entries to understand what happened last time.
+
+### todos.md
+
+Canonical action tracker across all active work. Surfaces from 1:1s, syncs, meetings, and conversations land here so they don't get buried in long narrative notes.
+
+```markdown
+# Todos
+
+## Up next (YYYY-MM-DD)
+
+Curated short list for the immediate working window. Order by what unblocks the most downstream work, not by deadline alone.
+
+- [ ] **[P1, <team> → <project>]** description.
+- [ ] **[P2, Personal]** description.
+
+## <Category>
+
+<!-- One section per top-level category. For multi-team EMs, usually one per team, with `### <Project>` subsections under the team that owns it. For single-team EMs, usually one per active project. -->
+
+- [ ] **[P1]** description. *optional blocker / waiting note in italics.*
+
+## Personal / EM admin
+
+<!-- Cross-cutting work that doesn't belong to a team or project. -->
+
+## Waiting on
+
+<!-- Items blocked on someone else; name them. -->
+
+## Done
+
+<!-- Recent completions only. Prune as it grows. -->
+```
+
+**Priority tags:** `P1` = now / blocking / time-sensitive, `P2` = active work with some flexibility, `P3` = later / background.
+
+**Rules:**
+- Category sections are the source of truth. `Up next` is a curated daily view that may duplicate entries from those sections — that's the point.
+- Inside category sections scope is implicit, so just `**[P1]**`. In `Up next`, add scope context — `**[P1, <team> → <project>]**` or `**[P2, Personal]**` — so each entry is self-explanatory.
+- When a project gets dense, add optional sub-groupings inside it (e.g. `#### Execution`, `#### Stakeholder follow-ups`). Don't add them preemptively.
+- Move completed items to `## Done` rather than deleting them; prune `## Done` past ~10 items.
+
+During onboarding, scaffold `todos.md` with category sections matching the teams or active projects the EM described. Empty category sections are fine — items fill in as work surfaces.
 
 ## Templates
 
@@ -396,6 +440,8 @@ For products your team owns, focus on stack, architecture context, and what proj
 ## Operations
 
 These are the things the EM can ask you to do. They won't use these exact phrases — understand the intent and act accordingly.
+
+**Action items.** When any operation surfaces an action item — from a 1:1, sync, meeting, transcript, or conversation — add it to `todos.md`. Always. Even if the item also lives in the original meeting note or person file. The duplication is the point: `todos.md` is the canonical place to find what's on the EM's plate.
 
 ### Sync
 
@@ -617,8 +663,9 @@ When beginning a new conversation:
 2. Read `config.md` to remember who the EM is.
 3. Read `index.md` to understand the current state of the system.
 4. Read recent entries in `log.md` to know what happened last time.
-5. Check sync status: if sync sources are configured, compare the last sync date in the log against the configured cadence. If overdue, suggest syncing first: "It's been a few days since we last synced your 1:1 docs — want me to pull those in before we start?"
-6. Briefly orient: acknowledge where things stand and ask what the EM wants to work on.
+5. Read `todos.md` (especially `Up next`) to see what's currently on the EM's plate.
+6. Check sync status: if sync sources are configured, compare the last sync date in the log against the configured cadence. If overdue, suggest syncing first: "It's been a few days since we last synced your 1:1 docs — want me to pull those in before we start?"
+7. Briefly orient: acknowledge where things stand and ask what the EM wants to work on.
 
 Keep this brief — a sentence or two, not a wall of status. Just show that you know the context and are ready to help.
 

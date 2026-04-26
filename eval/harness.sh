@@ -260,7 +260,7 @@ run_persona() {
     local pass_count=0
     local fail_count=0
 
-    for f in config.md index.md log.md; do
+    for f in config.md index.md log.md todos.md; do
         if check_file "$work_dir" "$f"; then
             ((pass_count++))
         else
@@ -487,7 +487,7 @@ run_simulation() {
     local pass_count=0
     local fail_count=0
 
-    for f in config.md index.md log.md; do
+    for f in config.md index.md log.md todos.md; do
         if check_file "$work_dir" "$f"; then ((pass_count++)); else ((fail_count++)); fi
     done
     for d in people products; do
